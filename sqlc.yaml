@@ -1,0 +1,29 @@
+version: "1"
+packages:
+  - name: "db"
+    path: "./db/sqlc"
+    queries: "./db/query/"
+    schema: "./db/migration/"
+    engine: "postgresql"
+    sql_package: "database/sql"
+    emit_json_tags: true
+    emit_prepared_queries: false
+    emit_interface: false
+    emit_exact_table_names: false
+
+
+# version: "2"
+# sql:
+#   - engine: "postgresql"
+# #   queries will be written in this folder
+#     queries: "./db/query"
+#     # schema for our tables are present in this folder
+#     schema: "./db/migration"
+#     gen:
+#       go:
+#     #   custom package name
+#         package: "db" 
+#         # out folder for gen files
+#         out: "./db/sqlc"
+#         sql_package: "database/sql"
+#         sql_driver: github.com/jackc/pgx/v5
