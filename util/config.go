@@ -4,6 +4,7 @@ import "github.com/spf13/viper"
 
 // Config stores all configuration of the application.
 // The values are read by viper from a config file or environment variable.
+// for unmarshelling viper use map structure and the value after it is the same variable name devlared in env file
 type Config struct {
 	DBDriver      string `mapstructure:"DB_DRIVER"`
 	DBSource      string `mapstructure:"DB_SOURCE"`
@@ -14,7 +15,7 @@ type Config struct {
 func LoadConfig(path string) (config Config, err error) {
 	viper.AddConfigPath(path)
 	viper.SetConfigName("app")
-	viper.SetConfigType("env")
+	viper.SetConfigType("env") // this can be json, xml, etc 
 
 	viper.AutomaticEnv()
 
